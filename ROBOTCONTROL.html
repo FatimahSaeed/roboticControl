@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>*Fatimah Saeed*</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #666;
+  padding: 10px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+nav {
+  float: left;
+  width: 30%;
+  height: 550px; 
+  background: #f1f1f1;
+  padding: 20px;
+}
+
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button {
+  width: 30%;
+  background-color: hsl(120,60%,70%);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 15px;
+   float: left;
+  border-radius: 5px;
+  background: rgba(0,0,255,0.3); 
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(0,0,255,0.6);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+input[type=submit] {
+  width: 30%;
+  background-color: hsl(120,60%,70%);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<header>
+  <h2>ROBOT CONTROL PANEL</h2>
+</header>
+
+<section>
+  <nav>
+<h1> *RoboticBase control panel*</h1>
+<br>
+<form name="formBase" method="post" action="robotBase.php">
+
+<button style="color:red; margin: 60px;" type="submit" name="Stop" id="stop" value="stop"> <b> Stop !!! </b></button>
+<br>
+<button type="submit" name="Left" id="Left" value="Left">  <b>	&#8592; Left </b></button>
+<button type="submit" name="Right" id="Right" value="Right"> <b> Right &#8594; </b></button>
+<br>
+<button type="submit" name="Forward" id="Forward" value="Forward"><b>  Forward &#8593; </b></button>
+<button type="submit" name="Backward" id="Backward" value="Backward"><b> &#8595; Backward  </b></button>
+
+</form>
+  </nav>
+  <nav style="float: center; background:white;">
+  <p> <b>*User could add an optional video stream here if the robot has a camera*</b> </p>
+    </nav>
+    <nav style=" padding: 20px; float: right;">
+<h1> *RoboticArm control panel*</h1>
+<br>
+<form name="formArm" method="post" action="phpRoboticArm.php">
+<div class="slidecontainer">
+  <input type="range" min="0" max="180" value="90" class="slider" id="motor1" name="m1">Motor 1:  <span id="v1"></span>
+<br>
+<br>
+   <input type="range" min="0" max="180" value="90" class="slider" id="motor2" name="m2">Motor 2: <span id="v2"></span>
+<br>
+<br>
+   <input type="range" min="0" max="180" value="90" class="slider" id="motor3" name="m3">Motor 3: <span id="v3"></span>
+<br>
+<br>
+   <input type="range" min="0" max="180" value="90" class="slider" id="motor4" name="m4">Motor 4: <span id="v4"></span>
+<br>
+<br>
+    <input type="range" min="0" max="180" value="90" class="slider" id="motor5" name="m5">Motor 5: <span id="v5"></span>
+  <br>
+<br>
+    <input type="range" min="0" max="180" value="90" class="slider" id="motor6" name="m6">Motor 6: <span id="v6"></span>
+</div>
+<br>
+<input type="submit" name="save" id="Submit" value="Save">
+</form>
+<br>
+<form name="formArm2" method="post" action="RoboticArmResult.php">
+<button type="submit" name="run" id="run" value="run">  Run!! </button>
+</form>
+  </nav>
+  
+<script>
+var slider = document.getElementById("motor1");
+var output = document.getElementById("v1");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+var slider2 = document.getElementById("motor2");
+var output2 = document.getElementById("v2");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+
+var slider3 = document.getElementById("motor3");
+var output3 = document.getElementById("v3");
+output3.innerHTML = slider3.value;
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
+
+var slider4 = document.getElementById("motor4");
+var output4 = document.getElementById("v4");
+output4.innerHTML = slider4.value;
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
+
+var slider5 = document.getElementById("motor5");
+var output5 = document.getElementById("v5");
+output5.innerHTML = slider5.value;
+
+slider5.oninput = function() {
+  output5.innerHTML = this.value;
+}
+
+var slider6 = document.getElementById("motor6");
+var output6 = document.getElementById("v6");
+output6.innerHTML = slider6.value;
+
+slider6.oninput = function() {
+  output6.innerHTML = this.value;
+}
+</script>
+  
+</section>
+</body>
+</html>
