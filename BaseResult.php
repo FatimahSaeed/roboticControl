@@ -9,8 +9,6 @@ try{
 
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $conn->beginTransaction();
- 
-  //$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 	
 $val=$conn->prepare("SELECT RLFBS FROM `directions` ORDER BY id DESC LIMIT 1");		
 $val->execute();	
